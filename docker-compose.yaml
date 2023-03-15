@@ -1,0 +1,18 @@
+version: '3'
+services:
+  product-module:
+    image: svyatoslavkotov/telegram-bot-assistant:v1.0
+    container_name: 'telegram-bot-assistant'
+    env_file:
+      - .env
+    environment:
+      SERVER_PORT: ${SERVER_PORT}
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      BOT_NAME: ${TELEGRAM_BOT_NAME}
+      BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+
+    restart: always
+    ports:
+      - '90.156.225.74:${SERVER_PORT}:${SERVER_PORT}'
